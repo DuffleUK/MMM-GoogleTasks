@@ -173,7 +173,7 @@ Module.register("MMM-GoogleTasks",{
                     
                     Log.info("Days: " + days);
 
-                    if (days- < moment().diff(moment(item.due), "day")) {
+                    if (days < moment().diff(moment(item.due), "day")) {
                         //Skip the loop
                         break;
                     }
