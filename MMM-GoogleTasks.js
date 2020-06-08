@@ -153,7 +153,7 @@ Module.register("MMM-GoogleTasks",{
                     Log.info("Switch statement entered");
                     switch (this.config.showNext) {
                         case "day":
-                            days = 0;
+                            days = 1;
                             break;
                         case "week":
                             days = 7;
@@ -173,7 +173,7 @@ Module.register("MMM-GoogleTasks",{
                     
                     Log.info("Days: " + days);
 
-                    if (days <= moment().diff(moment(item.due), "day")) {
+                    if ((days-1) < moment().diff(moment(item.due), "day")) {
                         //Skip the loop
                         break;
                     }
