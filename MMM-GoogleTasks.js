@@ -10,7 +10,7 @@ Module.register("MMM-GoogleTasks",{
 		updateInterval: 10000, // Time between content updates (millisconds)
 		animationSpeed: 2000, // Speed of the update animation (milliseconds)
         	tableClass: "small", // Name of the classes issued from main.css
-        	showNext: false, //Show only tasks for the current day
+        	showNext: false, //Show only tasks for next time period
 		
 		// Pointless for a mirror, not currently implemented
 		/* 
@@ -149,7 +149,8 @@ Module.register("MMM-GoogleTasks",{
 			for (i = 0; i < sorted.length; i++) {
 				//If you only want to display events from a certain time period
 				if (this.config.showNext != false) {
-				    var days;
+							var days;
+							Log.info("Switch statement entered");
 				    switch (this.config.showNext) {
 					case "day":
 					    days = 0;
@@ -168,7 +169,9 @@ Module.register("MMM-GoogleTasks",{
 					    break;
 					default:
 					    days = this.config.showNext;
-				    }
+							}
+
+							Log.info("Days: " + days);
 
 				    if (days <= moment().diff(moment(item.due), "day")) {
 					//Skip the loop
