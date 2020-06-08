@@ -147,10 +147,11 @@ Module.register("MMM-GoogleTasks",{
 
             // ------ add to wrapper
             for (i = 0; i < sorted.length; i++) {
+                item = sorted[i];
+
                 //If you only want to display events from a certain time period
                 if (this.config.showNext != false) {
                     var days;
-                    Log.info("Switch statement entered");
                     switch (this.config.showNext) {
                         case "day":
                             days = 1;
@@ -170,15 +171,13 @@ Module.register("MMM-GoogleTasks",{
                         default:
                             days = this.config.showNext;
                     }
-                    
-                    Log.info("Days: " + days);
 
-                    if (days < moment().diff(moment(item.due), "day")) {
+                    if (days > moment().diff(moment(item.due), "day")) {
                         //Skip the loop
                         break;
                     }
                 }
-                item = sorted[i];
+
                 titleWrapper = document.createElement('div');
                 titleWrapper.className = "item title";
                 titleWrapper.innerHTML = "<i class=\"fa fa-circle-thin\" ></i>" + item.title;
