@@ -147,34 +147,34 @@ Module.register("MMM-GoogleTasks",{
 
 			// ------ add to wrapper
 			for (i = 0; i < sorted.length; i++) {
-                //If you only want to display events from a certain time period
-                if (this.config.showNext != false) {
-                    var days;
-                    switch (this.config.showNext) {
-                        case "day":
-                            days = 0;
-                            break;
-                        case "week":
-                            days = 7;
-                            break;
-                        case "fortnight":
-                            days = 14;
-                            break;
-                        case "month":
-                            days = 30;
-                            break;
-                        case "year":
-                            days = 365;
-                            break;
-                        default:
-                            days = this.config.showNext;
-                    }
+				//If you only want to display events from a certain time period
+				if (this.config.showNext != false) {
+				    var days;
+				    switch (this.config.showNext) {
+					case "day":
+					    days = 0;
+					    break;
+					case "week":
+					    days = 7;
+					    break;
+					case "fortnight":
+					    days = 14;
+					    break;
+					case "month":
+					    days = 30;
+					    break;
+					case "year":
+					    days = 365;
+					    break;
+					default:
+					    days = this.config.showNext;
+				    }
 
-                    if (days <= moment().diff(moment(item.due), "day")) {
-                        //Skip the loop
-                        break;
-                    }
-                }
+				    if (days <= moment().diff(moment(item.due), "day")) {
+					//Skip the loop
+					break;
+				    }
+				}
 				item = sorted[i];
 				titleWrapper = document.createElement('div');
 				titleWrapper.className = "item title";
