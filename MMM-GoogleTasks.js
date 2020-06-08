@@ -149,8 +149,8 @@ Module.register("MMM-GoogleTasks",{
 			for (i = 0; i < sorted.length; i++) {
 				//If you only want to display events from a certain time period
 				if (this.config.showNext != false) {
-							var days;
-							Log.info("Switch statement entered");
+					var days;
+					Log.info("Switch statement entered");
 				    switch (this.config.showNext) {
 					case "day":
 					    days = 0;
@@ -169,13 +169,13 @@ Module.register("MMM-GoogleTasks",{
 					    break;
 					default:
 					    days = this.config.showNext;
-							}
+					}
 
-							Log.info("Days: " + days);
+					Log.info("Days: " + days);
 
 				    if (days <= moment().diff(moment(item.due), "day")) {
-					//Skip the loop
-					break;
+						//Skip the loop
+						break;
 				    }
 				}
 				item = sorted[i];
