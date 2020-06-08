@@ -172,7 +172,7 @@ Module.register("MMM-GoogleTasks",{
                             days = this.config.showNext;
                     }
 
-                    if (days > moment().diff(moment(item.due), "day")) {
+                    if (1 < moment().diff(moment(item.due), "day")) {
                         //Skip the loop
                         break;
                     }
